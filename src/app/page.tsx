@@ -25,7 +25,6 @@ export default function Home() {
       <div className="grid bg-black grid-cols-[repeat(4,1fr)] col-start-2 col-end-5 row-start-2 row-end-3" ref={cardContainer}>
         {generateCards()}
       </div>
-      <button className={styles.button}>HOLA</button>
     </div>
   );
 }
