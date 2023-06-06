@@ -1,18 +1,8 @@
 "use client";
 import { useRef } from "react";
-import styles from "./page.module.css";
 
 export default function Home() {
   const cardContainer = useRef<HTMLDivElement>(null);
-
-  function setUp() {
-    const cardDivs: HTMLDivElement[] = Array.from(
-      cardContainer.current?.children || []
-    );
-    cardDivs?.forEach((el) => {
-      el.style.backgroundColor = "#0000FF";
-    });
-  }
 
   function generateCards() {
     let elements = [];
@@ -20,7 +10,7 @@ export default function Home() {
       elements.push(
         <div>
           <img
-            className={styles.img}
+            className="w-full max-h-[25vh] max-w-[25vw] object-scale-down"
             src="https://cdn.shopify.com/s/files/1/0567/7344/3674/products/sword-of-avarice-doa1e.jpg"
             alt=""
           />
@@ -31,10 +21,11 @@ export default function Home() {
   }
 
   return (
-    <div className="grid bg-black grid-cols">
-      <div className={styles.cardContainer} ref={cardContainer}>
+    <div className="grid bg-black h-screen w-screen m-0 p-0 grid-cols-[repeat(5,1fr)] grid-rows-[repeat(3,1fr)]">
+      <div className="grid bg-black grid-cols-[repeat(4,1fr)] col-start-2 col-end-5 row-start-2 row-end-3" ref={cardContainer}>
         {generateCards()}
       </div>
+      <button className={styles.button}>HOLA</button>
     </div>
   );
 }
